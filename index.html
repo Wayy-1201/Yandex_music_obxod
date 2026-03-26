@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="heart_for_document.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵Яндекс-Музыка🎵</title>
+</head>
+<style>
+.visible{
+    opacity: 0 !important;
+    display: none !important;
+    visibility: none !important; 
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(ellipse at bottom , #0d1a26 0% , #000 100%);
+    color: aliceblue;
+    height: 100vh;
+    overflow: hidden;
+    background-size: 100% 100%;
+}
+.btn{
+    padding: 10px 30px;
+    color: aliceblue;
+    font-weight: bold;
+    box-shadow: 0 0 100px aliceblue;
+    border-radius: 7px;
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    animation: aniamte 1s ease-in-out;
+    z-index: 100;
+    backdrop-filter: blur(100px);
+}
+@keyframes aniamte{
+    0%{
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+iframe{
+    transition: 0.4s ease-in-out;
+    animation: 1s aniamte ease-in-out;
+}
+
+
+</style>
+<body>
+    <div class="all">
+        <button id="btn2" class="btn">Плейлист</button>
+        <iframe id="asdasd" class="visible" frameborder="0" allow="clipboard-write" style="border:none;width:350px;height:556px;" width="350" height="556" src="https://music.yandex.ru/iframe/playlist/onewayy1092/3">Слушайте <a href="https://music.yandex.ru/playlists/lk.29f7a617-ad6c-4912-8ea8-bc2517bbbc6d?utm_source=web&utm_medium=copy_link">Мне нравится</a> — <a href="https://music.yandex.ru/users/onewayy1092">One_Wayy</a> на Яндекс Музыке</iframe>
+    </div>
+</body>
+<script>
+    const btn = document.getElementById("btn2")
+    const frame  = document.getElementById("asdasd")
+
+    btn.addEventListener('click' ,() =>{
+        if(frame.classList.contains("visible")){
+            frame.classList.remove("visible")
+            btn.classList.add("visible")
+        }
+            setTimeout(()=>{
+                document.addEventListener('click' , function closeHandler(e){
+                    if(!frame.classList.contains(e.target)){
+                        frame.classList.add("visible")
+                        btn.classList.remove("visible")
+                    }
+                } , 3000)
+            })
+
+    })
+
+
+</script>
+</html>
